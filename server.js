@@ -12,7 +12,7 @@ var Receipt     = require('./models/receipt');
 
 
   var mongoose   = require('mongoose');
-  mongoose.connect('mongodb://localhost/receipts',function (err,db) {
+  mongoose.connect('mongodb://user:password@ds119220.mlab.com:19220/receipts',function (err,db) {
     if(err){
       console.log("Error connecting");
       process.exit(1);
