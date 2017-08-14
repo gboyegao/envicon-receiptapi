@@ -124,6 +124,13 @@ router.route('/receipts')
               receipt.receiptNumber = req.body.receiptNumber;
               receipt.receiptDate = req.body.receiptDate;
               receipt.total = req.body.total;
+              receipt.item = [];
+              for (let i in req.body.item) {
+                   let item = req.body.item[i];
+                   let itemObj = { name: item['name'], quantity: item['quantity'], unitPrice: item['unitPrice'], amount: item['amount'] };
+                     receipt.item.push(itemObj);
+                 }
+
               receipt.save(function(err) {
                 if (err)
                     res.send(err);
